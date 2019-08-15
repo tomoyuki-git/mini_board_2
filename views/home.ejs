@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= title %></title>
+</head>
+<body>
+    <head>
+    <h1><%= title %></h1>'
+    </head>
+    <div role="main">
+    <h2><%= collection[0].relations.user.attributes.name %> 's Home.</h2>
+    <p><%= collection[0].relations.user.attributes.comment %></p>
+    <hr>
+    <p><table style="width:90%;">
+    <% for(var in collection) { %>
+        <%- include('data_item',{val:collection[i]}) %>
+    <% } %>
+
+    <% if (pagination.page < pagination.pageCount) { %>
+    <span><a href="/home/<%=userid%><%= pagination.page + 1 %>">Next &gt;&gt;</a></span>
+    <% } else { %>
+    <span>Next &gt;&gt;</span>
+    <% } %>
+    </table>
+    </p>
+    <p> </p>
+    <p><a href="/"> &lt;&lt; Top</a></p>
+    </div>
+</body>
+</html>
